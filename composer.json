@@ -1,0 +1,15 @@
+{
+    "name": "pc/product-crud-mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "mygithubaccount3",
+            "email": "43136479+mygithubaccount3@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
