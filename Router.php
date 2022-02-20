@@ -31,8 +31,6 @@ class Router
             $currentUrl = substr($currentUrl, 0, strpos($currentUrl, '?'));
         }
 
-        var_dump($this->getRoutes, $this->postRoutes, $currentUrl);
-
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
