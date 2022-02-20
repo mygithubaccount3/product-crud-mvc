@@ -12,7 +12,14 @@ class Database
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
+        $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        $cleardb_scheme = $cleardb_url["scheme"];
+        $cleardb_server = $cleardb_url["host"];
+        $cleardb_username = $cleardb_url["user"];
+        $cleardb_password = $cleardb_url["pass"];
+        $cleardb_db = substr($cleardb_url["path"], 1);
+
+        $this->pdo = new PDO("$cleardb_scheme:host=$cleardb_server;port=3306;dbname=$cleardb_db", $cleardb_username, $cleardb_password);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         self::$db = $this;
